@@ -14,7 +14,7 @@ locals {
 
   # s3_* - to get package from S3
   s3_bucket         = var.s3_existing_package != null ? lookup(var.s3_existing_package, "bucket", null) : (var.store_on_s3 ? var.s3_bucket : null)
-  s3_key            = var.function_name ? var.function_name : var.layer_name
+  s3_key            = var.function_name != null ? var.function_name : var.layer_name
   s3_object_version = var.s3_existing_package != null ? lookup(var.s3_existing_package, "version_id", null) : (var.store_on_s3 ? try(aws_s3_bucket_object.lambda_package[0].version_id, null) : null)
 
 }
