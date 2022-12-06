@@ -535,7 +535,7 @@ variable "artifacts_dir" {
   default     = "builds"
 }
 
-variable "s3_prefix" {
+variable "s3_name" {
   description = "Directory name where artifacts should be stored in the S3 bucket. If unset, the path from `artifacts_dir` is used"
   type        = string
   default     = null
